@@ -1,19 +1,134 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Practice 3</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <!-- Figtree 500 & 800 -->
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;800&display=swap" rel="stylesheet">
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    :root{
+      --yellow: hsl(40 98% 82%);
+      --white: hsl(0 0% 100%);
+      --gray-500: hsl(0 0% 42%);
+      --gray-950: hsl(0 0% 7%);
+      --radius: 12px;
+      --shadow: 8px 6px 0 hsl(0 0% 0%);
+    }
+
+    html,body{height:100%}
+    body{
+      margin:0;
+      display:grid;
+      place-items:center;
+      background: var(--yellow);
+      font-family: "Figtree", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    .card{
+      --card-w: 350px;
+      max-width: var(--card-w);
+      background: var(--white);
+      border-radius: calc(var(--radius) * 1.25);
+      box-shadow: var(--shadow);
+      color: var(--gray-950);
+      overflow: clip;
+      border: 2px solid hsl(0 0% 0%);
+    }
+
+    .card__inner{
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 16px;
+    }
+
+    .card__media{
+      inline-size: 100%;
+      aspect-ratio: 16 / 9;
+      background: #e9eef7;
+      display:grid; place-items:center;
+    }
+    .card__img{ width:100%; height:100%; object-fit: cover; display:block; }
+
+    .card__body{
+      padding: 22px 24px 20px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .badge{
+      justify-self: start;
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: .3px;
+      background: var(--yellow);
+      border: 1px solid hsl(0 0% 7% / .08);
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+
+    .meta{ color: var(--gray-500); font-size: 14px; }
+
+    .card__title{
+      margin: 0;
+      font-weight: 800;
+      font-size: 24px;
+      line-height: 1.1;
+      transition: color .2s ease;
+    }
+    .card__title:hover{
+      color: hsl(40 98% 82);
+      cursor: pointer;
+    }
+
+    .card__excerpt{
+      margin: 0;
+      font-size: 16px;
+      color: var(--gray-500);
+    }
+    .card__excerpt b{ color: var(--gray-950); }
+
+    .card__footer{
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .avatar{ width: 28px; height: 28px; border-radius: 50%; flex: 0 0 28px; }
+    .author{ font-size: 14px; font-weight: 800; }
+
+    .card a{ color: inherit; text-decoration: none; }
+    .card a:focus-visible{ outline: 3px solid hsl(216 100% 50% / .6); outline-offset: 4px; border-radius: 6px; }
+
+    @media (max-width: 390px){
+      .card{ margin: 16px; }
+    }
   </style>
 </head>
 <body>
+  <article class="card" role="article">
+    <div class="card__inner">
+      <div class="card__media" aria-label="Мініатюра публікації">
+        <img class="card__img" src="Blog-Image.png" alt="банер" />
+      </div>
 
+      <div class="card__body">
+        <span class="badge">HTML &amp; CSS</span>
+        <p class="meta">Публікація <time datetime="2025-09-01">1 Вересня 2025</time></p>
+
+        <h2 class="card__title">Практична №3</h2>
+
+        <p class="card__excerpt">
+          Мета практичної роботи полягає в тому, щоб налаштувати середовище розробки <b>VS Code</b>, а також реалізувати картку блогу для вдосконалення фундаментальних навичок з <b>HTML</b> та <b>CSS</b>.
+        </p>
+
+        <footer class="card__footer">
+          <img class="avatar" src="avatar_male.png" alt="Аватар" />
+          <span class="author">Віктор Білаш</span>
+        </footer>
+      </div>
+    </div>
+  </article>
 </body>
 </html>
